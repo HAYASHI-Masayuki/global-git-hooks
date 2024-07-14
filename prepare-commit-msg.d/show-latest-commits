@@ -1,0 +1,16 @@
+#!/bin/sh
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+# -m, -Fの場合はなにもしない
+if [ "$COMMIT_SOURCE" = "message" ]; then
+    exit 0
+fi
+
+cat <<'PERL' | perl -i - "$COMMIT_MSG_FILE"
+$/ = undef;
+$_ = <>;
+($logs = `git log -10 --pretty=format:"%ai:%d %s"`) =~ s/^/#\t/gm;
+s/(?=# -{24} >8 -{24})|\z/# Latest commits:\n$logs\n#\n/;
+print;
+PERL
