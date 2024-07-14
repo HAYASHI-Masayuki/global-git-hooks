@@ -51,9 +51,9 @@ Huskyとの併用
   ```sh
   #!/bin/bash
   if [ $(git config core.hooksPath) = '.husky' ]; then
-    git config --global core.hooksPath ~/.config/git/hooks
-    echo Huskyによる変更を修正しました。再実行してください。
-    exit 1
+      git config --unset core.hooksPath
+      echo Huskyによる変更を修正しました。再実行してください。
+      exit 1
   fi
   ```
 
