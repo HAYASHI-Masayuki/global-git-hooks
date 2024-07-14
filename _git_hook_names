@@ -1,0 +1,13 @@
+applypatch-msg
+commit-msg
+fsmonitor-watchman
+post-update
+pre-applypatch
+pre-commit
+pre-merge-commit
+pre-push
+pre-rebase
+pre-receive
+prepare-commit-msg
+push-to-checkout
+update

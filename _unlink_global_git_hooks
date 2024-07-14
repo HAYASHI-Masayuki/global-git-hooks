@@ -1,6 +1,4 @@
 #!/bin/bash
-hook_templates_path=/usr/share/git-core/templates/hooks
-
-for hook_name in "$hook_templates_path"/*.sample; do
+cat _git_hook_names | while IFS= read -r hook_name; do
     unlink "$(basename "${hook_name%%.sample}")"
 done
