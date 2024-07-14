@@ -14,6 +14,11 @@
    ./_generate_git_ignore
    ```
 
+3. Gitのグローバルなフックのパスを設定
+   ```sh
+   git config --global core.hooksPath ~/.config/git/hooks
+   ```
+
 グローバルなGitフックの追加
 --------------------------------------------------------------------------------
 
