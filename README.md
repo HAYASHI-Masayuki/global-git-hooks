@@ -48,13 +48,13 @@ Huskyとの併用
    ```
 
 2. `~/.huskyrc`(最近は`$XDG_CONFIG_HOME/husky/init.sh`等の方がよい？)に以下の内容を記載する。
-  ```sh
-  #!/bin/bash
-  if [ $(git config core.hooksPath) = '.husky' ]; then
-      git config --unset core.hooksPath
-      echo Huskyによる変更を修正しました。再実行してください。
-      exit 1
-  fi
+   ```sh
+   #!/bin/bash
+   if [ $(git config core.hooksPath) = '.husky' ]; then
+       git config --unset core.hooksPath
+       echo Huskyによる変更を修正しました。再実行してください。
+       exit 1
+   fi
   ```
 
 これにより、Husky設定ごとに`git commit`等が一回止まってしまうものの、Huskyとの併用が可能になります。
