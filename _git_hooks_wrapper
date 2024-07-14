@@ -10,3 +10,11 @@ local_git_hook_path="$(git rev-parse --git-dir)"/hooks/"$(basename "$0")"
 if [ -x "$local_git_hook_path" ]; then
     "$local_git_hook_path" "$@"
 fi
+
+if [ "$USING_HUSKY" ]; then
+    husky_git_hook_path="$(git rev-parse --show-toplevel)"/.husky/"$(basename "$0")"
+
+    if [ -x "$husky_git_hook_path" ]; then
+        "$husky_git_hook_path" "$@"
+    fi
+fi
