@@ -11,7 +11,8 @@
 
 2. シンボリックリンクを生成
    ```sh
-   ./_generate_git_ignore
+   cd ~/.config/git/hooks
+   ./_link_global_git_hooks
    ```
 
 3. Gitのグローバルなフックのパスを設定
@@ -25,12 +26,12 @@
 
 1. フック名 + `.d`のディレクトリを作成
    ```sh
-   mkdir prepare-commit-msg.d
+   mkdir ~/.config/git/hooks/prepare-commit-msg.d
    ```
 
 2. ディレクトリ内に、好きな名前で、実行可能ファイルを設置
    ```sh
-   cp .git/hooks/prepare-commit-mgs ~/.config/git/hooks/prepare-commit-msg.d/show-latest-commits
+   cp .git/hooks/prepare-commit-msg ~/.config/git/hooks/prepare-commit-msg.d/show-latest-commits
    ```
 
 
