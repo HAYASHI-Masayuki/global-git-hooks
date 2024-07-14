@@ -1,0 +1,10 @@
+#!/bin/bash
+hook_templates_path=/usr/share/git-core/templates/hooks
+
+if [ -f .gitignore ]; then
+    rm .gitignore
+fi
+
+for hook_name in "$hook_templates_path"/*.sample; do
+    echo "$(basename "${hook_name%%.sample}")" >> .gitignore
+done

@@ -1,0 +1,12 @@
+#!/bin/bash
+for hook_path in "$(dirname "$0")/$(basename "$0").d"/*; do
+    if [ -x "$hook_path" ]; then
+        "$hook_path" "$@"
+    fi
+done
+
+local_git_hook_path="$(git rev-parse --git-dir)"/hooks/"$(basename "$0")"
+
+if [ -x "$local_git_hook_path" ]; then
+    "$local_git_hook_path" "$@"
+fi

@@ -1,0 +1,6 @@
+#!/bin/bash
+hook_templates_path=/usr/share/git-core/templates/hooks
+
+for hook_name in "$hook_templates_path"/*.sample; do
+    ln -s __git_hooks_wrapper "$(basename "${hook_name%%.sample}")"
+done
