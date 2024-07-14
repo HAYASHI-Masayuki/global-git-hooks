@@ -1,4 +1,4 @@
 #!/bin/bash
 cat _git_hook_names | while IFS= read -r hook_name; do
-    ln -s __git_hooks_wrapper "$(basename "${hook_name%%.sample}")"
+    ln -s _git_hooks_wrapper "$(basename "${hook_name%%.sample}")"
 done
