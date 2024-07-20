@@ -48,10 +48,10 @@ Huskyとの併用
    export USING_HUSKY=1
    ```
 
-2. `~/.huskyrc`(最近は`$XDG_CONFIG_HOME/husky/init.sh`等の方がよい？)に以下の内容を記載する。
+2. `$XDG_CONFIG_HOME/husky/init.sh`に以下の内容を記載する。
    ```sh
    #!/bin/bash
-   if [ $(git config core.hooksPath) = '.husky' ]; then
+   if [ $(git config core.hooksPath) = '.husky/_' ]; then
        git config --unset core.hooksPath
        echo Huskyによる変更を修正しました。再実行してください。
        exit 1
