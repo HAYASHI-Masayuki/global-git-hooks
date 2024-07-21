@@ -51,12 +51,13 @@ Huskyとの併用
 2. `$XDG_CONFIG_HOME/husky/init.sh`に以下の内容を記載する。
    ```sh
    #!/bin/bash
-   if [ $(git config core.hooksPath) = '.husky/_' ]; then
+   if echo "$(git config core.hooksPath)" | grep -q '^\.husky'; then
        git config --unset core.hooksPath
        echo Huskyによる変更を修正しました。再実行してください。
        exit 1
    fi
    ```
+   8系以前のHuskyを使用している場合には、`~/.huskyrc`にも同様の内容を記載してください。
 
 これにより、Husky設定ごとに`git commit`等が一回止まってしまうものの、Huskyとの併用が可能になります。
 

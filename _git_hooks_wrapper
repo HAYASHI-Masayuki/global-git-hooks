@@ -13,8 +13,13 @@ fi
 
 if [ "$USING_HUSKY" ]; then
     husky_git_hook_path="$(git rev-parse --show-toplevel)"/.husky/_/"$(basename "$0")"
+    husky_git_hook_path_8="$(git rev-parse --show-toplevel)"/.husky/"$(basename "$0")"
 
     if [ -x "$husky_git_hook_path" ]; then
         "$husky_git_hook_path" "$@"
+    fi
+
+    if [ -x "$husky_git_hook_path_8" ]; then
+        "$husky_git_hook_path_8" "$@"
     fi
 fi
