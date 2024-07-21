@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 for hook_path in "$(dirname "$0")/$(basename "$0").d"/*; do
     if [ -x "$hook_path" ]; then
         "$hook_path" "$@"
