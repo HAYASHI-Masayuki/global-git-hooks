@@ -51,7 +51,7 @@ Huskyとの併用
 2. `$XDG_CONFIG_HOME/husky/init.sh`に以下の内容を記載する。
    ```sh
    #!/bin/bash
-   if echo "$(git config core.hooksPath)" | grep -q '^\.husky'; then
+   if git config core.hooksPath | grep -q '^\.husky'; then
        git config --unset core.hooksPath
        echo Huskyによる変更を修正しました。再実行してください。
        exit 1
