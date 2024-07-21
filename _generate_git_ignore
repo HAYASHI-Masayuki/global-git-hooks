@@ -4,5 +4,5 @@ if [ -f .gitignore ]; then
 fi
 
 cat _git_hook_names | while IFS= read -r hook_name; do
-    echo "$(basename "${hook_name%%.sample}")" >> .gitignore
+    basename "${hook_name%%.sample}" >> .gitignore
 done
