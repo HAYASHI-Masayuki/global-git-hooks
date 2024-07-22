@@ -3,7 +3,7 @@ set -e
 
 for hook_path in "$(dirname "$0")/$(basename "$0").d"/*; do
     if [ -x "$hook_path" ]; then
-        "$hook_path" "$@"
+        LEFTHOOK_BIN="$LEFTHOOK_BIN --no-auto-install" "$hook_path" "$@"
     fi
 done
 
